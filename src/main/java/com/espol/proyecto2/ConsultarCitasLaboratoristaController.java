@@ -6,6 +6,7 @@
 package com.espol.proyecto2;
 
 import com.espol.proyecto2.Modelo.Archivo;
+import com.espol.proyecto2.Modelo.ContratacionesPruebas;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
@@ -19,6 +20,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -40,21 +43,40 @@ public class ConsultarCitasLaboratoristaController implements Initializable {
     private TableColumn<String, String> fechacol;
     @FXML
     private TableColumn<String, String> numerocol;
+ 
+    @FXML
+    private VBox conte;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //ArrayList<String> Activo = Archivo.leer(App.pathFiles+App.usuarioActivo.getUsuario()+".txt");
-        //for(String a:Activo){
-        //    tablaDatos.getColumns().add(a);
-        //}
-        Random r = new Random();
-        ArrayList<String> lineapaciente = Archivo.leer(App.pathFiles+"pacientes.txt");
-        int valorDado = r.nextInt(lineapaciente.size());
-        int valorDado2 = r.nextInt(lineapaciente.size());
-        String lineacompleta = lineapaciente.get(valorDado);
-        String a[] = lineacompleta.split(",");
-        String lineacompleta2 = lineapaciente.get(valorDado2);
-        ObservableList<String> table = FXCollections.observableArrayList(a[2],a[3],a[4],String.valueOf(valorDado));
-        tablaDatos.setItems(table);
+        
+       
+        //---------------------------------
+      
+    TableView tab = new TableView();
+
+    TableColumn nameColumn = new TableColumn("Nombres");
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("nombresPaciente"));
+
+    TableColumn surnameColumn = new TableColumn("Apellidos");
+    surnameColumn.setCellValueFactory(new PropertyValueFactory<>("apellidosPaciente"));
+    
+    TableColumn dateColumn = new TableColumn("Fecha");
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+
+    TableColumn idColumn = new TableColumn("Número Solicitud");
+    surnameColumn.setCellValueFactory(new PropertyValueFactory<>("idSolicitud"));
+
+    tab.getColumns().addAll(nameColumn, surnameColumn,dateColumn,idColumn);
+  
+   ArrayList<ContratacionesPruebas> lista = App.deserializarLista();
+    for(ContratacionesPruebas c: lista){
+        System.out.println(c);
+        tab.getItems().add(c);
+    }
+    
+    conte.getChildren().add(tab);
+        //------------------------------------
+        
         
          botonCerrar.setOnAction(new EventHandler<ActionEvent>(){
              @Override
