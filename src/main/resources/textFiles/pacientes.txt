@@ -1,0 +1,7 @@
+﻿Usuario,cédula,nombres,apellidos,fecha nacimiento,género,ciudad,email,teléfono
+Caín,09111111,Caín Gustavo,Moreira Cáceres,23/4/2000,MASCULINO,Loja,ejemplo2@gmail.com,53535225
+Andrés,0922222,Andrés Josías,Ostaiza Luna,3/12/2001,MASCULINO,Guayaquil,ejemplo3@gmail.com,193848523
+Jacobo,0933333,Jacobo Alejandro,Alberto Macías,12/3/1999,MASCULINO,Guayaquil,ejemplo1@gmail.com,123455322
+Marcos,0951872787,Marcos Alejandro,Moreira Merino,26/8/2000,MASCULINO,Guayaquil,mamomeri@espol.edu.ec,0984300913
+Marcela,0918837,Marcela Martha,Olguín Santillan,2022-01-08,FEMENINO,Guayaquil,ejemplo5@email.com,173838
+Lucas,0952726743,Jorge Marcelo,Lucas Venavides,1999-12-21,MASCULINO,Guayaquil,jmlucas@espol.edu.ec,0998812128

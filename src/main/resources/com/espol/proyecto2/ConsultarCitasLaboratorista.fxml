@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="40.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proyecto2.ConsultarCitasLaboratoristaController">
+   <children>
+      <Label text="Consulta de Citas" />
+      <TableView fx:id="tablaDatos" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="nombrecol" prefWidth="116.79998624324799" text="Nombres" />
+          <TableColumn fx:id="apellocol" prefWidth="139.20001983642578" text="Apellidos" />
+            <TableColumn fx:id="fechacol" minWidth="0.0" prefWidth="90.4000244140625" text="Fecha" />
+            <TableColumn fx:id="numerocol" prefWidth="190.39998168945317" text="Número Solicitud" />
+        </columns>
+      </TableView>
+      <Button fx:id="botonCerrar" mnemonicParsing="false" text="Cerrar" />
+   </children>
+   <padding>
+      <Insets left="30.0" right="30.0" />
+   </padding>
+</VBox>

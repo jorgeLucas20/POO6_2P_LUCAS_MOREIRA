@@ -1,0 +1,5 @@
+DIAG345,Diagnóstico,RT-PCR,42.00
+DIAG422,Diagnóstico,Antígeno,28.00
+ANTI635,Anticuerpos,Cuantitativa,40.00
+ANTI433,Anticuerpos,Cualitativa,18.00
+ANTI666,Anticuerpos,Anti COVID-19,28.00

@@ -1,0 +1,26 @@
+.raíz {
+     -fx-imagen-de-fondo: url("fondo.jpg");
+}.etiqueta {
+    -fx-tamaño de fuente: 12px;
+    -fx-font-peso: negrita;
+    -fx-texto-relleno: #333333;
+    -efecto fx: sombra paralela (gaussiana, rgba (255,255,255,0.5), 0,0,0,1);
+}#texto-de-bienvenida {
+   -fx-tamaño de fuente: 32px;
+   -familia de fuentes fx: "Arial Black";
+   -fx-relleno: #818181;
+   -efecto fx: sombra interna (caja de tres pasos, rgba (0,0,0,0.7), 6, 0.0, 0, 2);
+}
+#objetivo de acción {
+  -fx-relleno: LADRILLO FUEGO;
+  -fx-font-peso: negrita;
+  -efecto fx: sombra paralela (gaussiana, rgba (255,255,255,0.5), 0,0,0,1);  
+}.botón {
+    -fx-texto-relleno: blanco;
+    -familia de fuentes fx: "Arial Narrow";
+    -fx-font-peso: negrita;
+    -fx-background-color: gradiente lineal (# 61a2b1, # 2A5058);
+    -efecto fx: sombra paralela (caja de tres pasos, rgba (0,0,0,0.6), 5, 0.0, 0, 1);
+}.botón: pasar el cursor {
+    -fx-background-color: gradiente lineal (#2A5058, #61a2b1);
+}

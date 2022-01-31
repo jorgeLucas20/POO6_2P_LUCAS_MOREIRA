@@ -1,0 +1,10 @@
+﻿usuario,password,tipo
+Roberto,123,L
+Caín,123,P
+Mateo,123,L
+Andrés,123,P
+Jacobo,123,P
+Lisa,123,L
+Marcos,123,P
+Marcela,123,P
+Lucas,123,P

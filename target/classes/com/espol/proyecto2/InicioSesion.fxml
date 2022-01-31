@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="contenedorPrincipal" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.proyecto2.InicioSesionController">
+   <children>
+      <ImageView fitHeight="100.0" fitWidth="548.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/vithasLabLOGO.png" />
+         </image>
+      </ImageView>
+      <GridPane prefHeight="90.0" prefWidth="120.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.79997100830076" minWidth="10.0" prefWidth="248.59995880126954" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="430.00000762939453" minWidth="10.0" prefWidth="250.20004119873042" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Usuario:" />
+            <Label text="Password:" GridPane.rowIndex="1" />
+            <PasswordField fx:id="campoContrasenaUsuario" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="campoTextoUsuario" GridPane.columnIndex="1" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="30.0" left="150.0" right="150.0" />
+         </VBox.margin>
+      </GridPane>
+      <Button fx:id="botonIniciarSesion" mnemonicParsing="false" text="Iniciar Sesión" />
+      <Label fx:id="labelCrearNuevaCuenta" text="Crear Nueva Cuenta" />
+   </children>
+</VBox>
