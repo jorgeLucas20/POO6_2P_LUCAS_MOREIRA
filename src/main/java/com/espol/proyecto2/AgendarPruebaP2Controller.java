@@ -164,7 +164,7 @@ public class AgendarPruebaP2Controller implements Initializable {
         texto1.setPadding(new Insets(5));
         texto2.setPadding(new Insets(5));
         
-        final String username = "jorgelucasbenavides@gmail.com";
+       final String username = "jorgelucasbenavides@gmail.com";
         final String password = "B39C34HN";
         char[] passwordchar = password.toCharArray();
         Properties props = new Properties();
