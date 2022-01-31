@@ -240,5 +240,5 @@ public class AgendarPruebaController implements Initializable {
         }
         return true; //Es numerico
     }
-    
+     
 }
