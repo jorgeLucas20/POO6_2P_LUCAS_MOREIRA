@@ -5,11 +5,14 @@
  */
 package com.espol.proyecto2;
 
+import com.espol.proyecto2.Modelo.ContratacionesPruebas;
+import com.espol.proyecto2.Modelo.Paciente;
 import com.espol.proyecto2.Modelo.Prueba;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.PasswordAuthentication;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.Random;
@@ -39,11 +42,11 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javax.mail.Transport;
-import javax.mail.Session;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.Message;
-import javax.mail.internet.InternetAddress;
+//import javax.mail.Transport;
+//import javax.mail.Session;
+//import javax.mail.internet.MimeMessage;
+//import javax.mail.internet.Message;
+//import javax.mail.internet.InternetAddress;
 
 
 /**
@@ -145,6 +148,19 @@ public class AgendarPruebaP2Controller implements Initializable {
         {
             //Todo va bien, continuar 
             
+            //llenar datos venta
+            App.contratoPruebaActiva.setFecha(String.valueOf(fechaPicker.getValue()));
+            if(App.usuarioActivo instanceof Paciente){
+                App.contratoPruebaActiva.setDireccion(textFieldDireccion.getText());
+                App.contratoPruebaActiva.setHora(textFieldHora.getText());
+                App.contratoPruebaActiva.setUbicacionX(posicionX);
+                App.contratoPruebaActiva.setUbicacionY(posicionY);
+            }
+            
+            ArrayList<ContratacionesPruebas> listaLeida = App.deserializarLista();
+            listaLeida.add(App.contratoPruebaActiva);
+            App.listaPruebasCompradas = listaLeida;
+            App.serializarLista();
             //después de enviar el mail
             abrirVentanaAdicional();
             
@@ -152,19 +168,8 @@ public class AgendarPruebaP2Controller implements Initializable {
     
     }
     
-    //ventana con hilo
-    
-    public void abrirVentanaAdicional(){
-        Stage nuevaVentana = new Stage();
-        VBox contenedorPrincipalNuevaVentana = new VBox();
-        contenedorPrincipalNuevaVentana.setPadding(new Insets(20));
-        Label texto1 = new Label("Se ha enviado un mail con la información de su cita\nagendada. El pago debe realizarlo en el momento en\nque se realice la prueba.");
-        Label texto2 = new Label();
-        
-        texto1.setPadding(new Insets(5));
-        texto2.setPadding(new Insets(5));
-        
-       final String username = "jorgelucasbenavides@gmail.com";
+    /*public void enviarMail(){
+        final String username = "jorgelucasbenavides@gmail.com";
         final String password = "B39C34HN";
         char[] passwordchar = password.toCharArray();
         Properties props = new Properties();
@@ -203,6 +208,22 @@ public class AgendarPruebaP2Controller implements Initializable {
               Transport.send(message);
         } catch (Exception e) {
         }
+    
+    } */
+    
+    //ventana con hilo
+    
+    public void abrirVentanaAdicional(){
+        Stage nuevaVentana = new Stage();
+        VBox contenedorPrincipalNuevaVentana = new VBox();
+        contenedorPrincipalNuevaVentana.setPadding(new Insets(20));
+        Label texto1 = new Label("Se ha enviado un mail con la información de su cita\nagendada. El pago debe realizarlo en el momento en\nque se realice la prueba.");
+        Label texto2 = new Label();
+        
+        texto1.setPadding(new Insets(5));
+        texto2.setPadding(new Insets(5));
+        
+        
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
