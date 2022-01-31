@@ -109,7 +109,7 @@ public class AgendarPruebaController implements Initializable {
     }
     @FXML
     public void onActionComboBoxTipoPrueba(){
-        numeroValorUnitarioLabel.setText("$0.00");
+        numeroValorUnitarioLabel.setText("0.00");
         if(comboBoxTipoPrueba.getValue().equals("Diagnóstico")){
             listaOpcionesComboBoxPrueba.clear();
             for(Prueba p : App.listaPruebasDisponibles){
@@ -142,7 +142,7 @@ public class AgendarPruebaController implements Initializable {
             if(indexPruebaSeleccionada != -1){
                 Prueba pruebaSeleccionada = App.listaPruebasDisponibles.get(indexPruebaSeleccionada);
                 System.out.println(pruebaSeleccionada);
-                numeroValorUnitarioLabel.setText("$"+String.valueOf(pruebaSeleccionada.getPrecio()));
+                numeroValorUnitarioLabel.setText(String.valueOf(pruebaSeleccionada.getPrecio()));
             }
     }
     
@@ -156,8 +156,8 @@ public class AgendarPruebaController implements Initializable {
             double subtotal = totalCompras.get(0)+ Double.valueOf(porcionCostolabel)*Double.valueOf(campoTextoCantidad.getText());
             totalCompras.set(0,subtotal);
             totalCompras.set(1,subtotal+5);
-            numeroSubTotalLabel.setText("$"+(String.valueOf(totalCompras.get(0))));
-            numeroTotalLabel.setText("$"+(String.valueOf(totalCompras.get(1))));
+            numeroSubTotalLabel.setText((String.valueOf(totalCompras.get(0))));
+            numeroTotalLabel.setText((String.valueOf(totalCompras.get(1))));
         }
         catch(CamposIncompletosException e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -184,6 +184,7 @@ public class AgendarPruebaController implements Initializable {
         }
         else
         {
+            
             //todo va bien, continuar 
             agregadoExitoso = true;
             //agregamos el hbox con 3 labels
@@ -195,7 +196,7 @@ public class AgendarPruebaController implements Initializable {
             Label cantidadCompraN = new Label(campoTextoCantidad.getText());
             Label precioCompraN = new Label(numeroValorUnitarioLabel.getText());
             subContenedor.getChildren().addAll(nombreCompraN,cantidadCompraN,precioCompraN);
-            contenedorCompras.getChildren().add(subContenedor);
+            contenedorCompras.getChildren().add(subContenedor);   
             App.pruebassolicitadas.add(nombreCompraN.getText());
             
         }
@@ -206,6 +207,7 @@ public class AgendarPruebaController implements Initializable {
     public void onActionBotonContinuar(){
         if(agregadoExitoso){       
             try {
+                App.contratoPruebaActiva.setTotalPagar(Double.valueOf(numeroTotalLabel.getText()));
                 Stage stage = new Stage();
                 Scene scene = new Scene(App.loadFXML("AgendarPruebaP2"), 1300, 700);
                 System.out.println("clic a AgendarPrueba");
