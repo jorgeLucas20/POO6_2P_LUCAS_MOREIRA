@@ -71,6 +71,7 @@ public class InicioSesionController implements Initializable {
                             
                             Usuario usuarioEncontrado = App.usuariosLista.get(indexUsuarioEncontrado);
                             App.usuarioActivo = usuarioEncontrado;
+                            App.contratoPruebaActiva.setUsuarioPaciente(App.usuarioActivo.getUsuario());
                             if(usuarioEncontrado.getTipo().equals(tipoUsuario.PACIENTE)){
                                 //VEMOS SI ES PACIENTE
                                 System.out.println("clic a OpcionesPaciente");
